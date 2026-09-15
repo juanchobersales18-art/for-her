@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy 7th Monthsary 💗</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: linear-gradient(135deg, #ffd9e8, #fff5fa, #e7d8ff);
+    color: #5c4050;
+    overflow-x: hidden;
+}
+
+/* Floating hearts */
+.heart {
+    position: fixed;
+    bottom: -40px;
+    font-size: 25px;
+    animation: float 8s linear infinite;
+    opacity: 0.7;
+    z-index: 0;
+}
+
+.heart:nth-child(1) { left: 8%; animation-delay: 0s; }
+.heart:nth-child(2) { left: 28%; animation-delay: 2s; }
+.heart:nth-child(3) { left: 48%; animation-delay: 4s; }
+.heart:nth-child(4) { left: 68%; animation-delay: 1s; }
+.heart:nth-child(5) { left: 88%; animation-delay: 3s; }
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Main container */
+.container {
+    width: 92%;
+    max-width: 850px;
+    margin: auto;
+    padding: 30px 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Main card */
+.card {
+    background: rgba(255,255,255,0.9);
+    border-radius: 30px;
+    padding: 25px;
+    box-shadow: 0 15px 40px rgba(100,60,90,0.2);
+}
+
+/* Header */
+.header {
+    text-align: center;
+}
+
+.header h1 {
+    color: #d6538b;
+    font-size: 38px;
+    margin: 10px 0;
+}
+
+.header p {
+    color: #916579;
+    font-size: 17px;
+}
+
+.big-heart {
+    font-size: 60px;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+/* Divider */
+.divider {
+    text-align: center;
+    color: #d6538b;
+    font-size: 24px;
+    margin: 28px 0;
+}
+
+/* Gallery title */
+.gallery-title {
+    text-align: center;
+    color: #c74f82;
+    font-size: 27px;
+}
+
+.gallery-subtitle {
+    text-align: center;
+    color: #927083;
+    font-size: 15px;
+}
+
+/* Choose photos button */
+.choose-area {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#photoInput {
+    display: none;
+}
+
+.choose-button {
+    display: inline-block;
+    background: #d6538b;
+    color: white;
+    padding: 14px 23px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 5px 15px rgba(200,70,130,0.25);
+}
+
+/* Photo gallery */
+.gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    max-height: 800px;
+    overflow-y: auto;
+    padding: 10px;
+    scroll-behavior: smooth;
+}
+
+/* Photo card */
+.photo-card {
+    background: white;
+    padding: 10px 10px 18px;
+    border-radius: 18px;
+    box-shadow: 0 7px 18px rgba(80,50,70,0.18);
+}
+
+.photo-card img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 13px;
+    display: block;
+}
+
+.photo-caption {
+    text-align: center;
+    margin-top: 10px;
+    color: #d6538b;
+    font-size: 16px;
+}
+
+/* Message */
+.message {
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.message h2 {
+    text-align: center;
+    color: #c74f82;
+    margin-bottom: 20px;
+}
+
+.message p {
+    margin-bottom: 18px;
+}
+
+.highlight {
+    color: #d6538b;
+    font-weight: bold;
+}
+
+/* Sorry box */
+.sorry-box {
+    background: #fff0f6;
+    border-left: 5px solid #d6538b;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 25px 0;
+}
+
+/* Secret message */
+.button-area {
+    text-align: center;
+    margin-top: 25px;
+}
+
+button {
+    border: none;
+    background: #d6538b;
+    color: white;
+    padding: 14px 25px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#secretMessage {
+    display: none;
+    margin-top: 22px;
+    padding: 22px;
+    background: #fff0f6;
+    border-radius: 18px;
+    text-align: center;
+    line-height: 1.8;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    color: #987486;
+    font-size: 14px;
+}
+
+/* Phone */
+@media (max-width: 600px) {
+
+    .container {
+        width: 94%;
+        padding: 20px 0;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .header h1 {
+        font-size: 32px;
+    }
+
+    .photo-card img {
+        height: 280px;
+    }
+
+    .message {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Floating hearts -->
+<div class="heart">💗</div>
+<div class="heart">💕</div>
+<div class="heart">💖</div>
+<div class="heart">💞</div>
+<div class="heart">💗</div>
+
+
+<div class="container">
+
+<div class="card">
+
+    <!-- HEADER -->
+    <div class="header">
+
+        <div class="big-heart">💗</div>
+
+        <h1>Happy 7th Monthsary!</h1>
+
+        <p>
+            Seven months of memories, laughter, and moments to remember 🌷
+        </p>
+
+    </div>
+
+
+    <div class="divider">
+        ♡ ───────── ♡
+    </div>
+
+
+    <!-- PHOTO GALLERY -->
+    <h2 class="gallery-title">
+        📸 Our Little Memories
+    </h2>
+
+    <p class="gallery-subtitle">
+        Choose your favorite photos from your phone 💗
+    </p>
+
+
+    <div class="choose-area">
+
+        <label for="photoInput" class="choose-button">
+            📷 Choose Photos
+        </label>
+
+        <input
+            type="file"
+            id="photoInput"
+            accept="image/*"
+            multiple
+        >
+
+    </div>
+
+
+    <!-- Photos will appear here -->
+    <div id="gallery" class="gallery">
+
+        <p id="emptyText" style="text-align:center;color:#987486;">
+            Your photos will appear here 🌸
+        </p>
+
+    </div>
+
+
+    <div class="divider">
+        ♡ ───────── ♡
+    </div>
+
+
+    <!-- MESSAGE -->
+    <div class="message">
+
+        <h2>For You 💌</h2>
+
+        <p>
+            Happy <span class="highlight">7th Monthsary!</span> 🫶🏻
+        </p>
+
+        <p>
+            Seven months already! It's honestly amazing how quickly time
+            has passed. Looking back, we've already made so many memories,
+            shared so many conversations, laughed about random things,
+            and experienced moments that I'll always appreciate.
+        </p>
+
+        <p>
+            These seven months may not have been perfect, and I know there
+            were times when things weren't easy. But despite the mistakes
+            and misunderstandings, I'm still thankful for every moment
+            we've shared.
+        </p>
+
+
+        <!-- SORRY -->
+        <div class="sorry-box">
+
+            <strong>I'm really sorryyy. 🥺💗</strong>
+
+            <p>
+                I'm sorry for all the mistakes I've made, for the times
+                I may have hurt you, disappointed you, or made you feel bad.
+            </p>
+
+            <p>
+                I know that simply saying sorry doesn't erase everything,
+                but I genuinely mean it. I'm still learning, and I want
+                to learn from my mistakes and become better.
+            </p>
+
+        </div>
+
+
+        <p>
+            Thank you for your patience, understanding, and for every
+            little moment that made these seven months special.
+        </p>
+
+        <p>
+            Every memory, even the simple ones, became something worth
+            remembering. I'm grateful for all the moments we've shared.
+        </p>
+
+        <p>
+            <span class="highlight">
+                Happy 7th Monthsary! 💐💗
+            </span>
+        </p>
+
+        <p>
+            Thank you for being part of these seven months.
+            I hope we continue making more memories, learning from
+            our mistakes, and having more happy moments together. 🫶🏻
+        </p>
+
+    </div>
+
+
+    <!-- SECRET BUTTON -->
+    <div class="button-area">
+
+        <button onclick="openMessage()">
+            💌 Click for one more message
+        </button>
+
+    </div>
+
+
+    <div id="secretMessage">
+
+        <h2>One More Thing... 🥺</h2>
+
+        <p>
+            I'm really sorry for everything.
+            I know I make mistakes, but I want to learn from them
+            and become better.
+        </p>
+
+        <p>
+            Thank you for all the memories from these past seven months.
+            I truly appreciate every one of them. 💗
+        </p>
+
+        <p>
+            <strong>
+                Happy 7th Monthsary! 🌷💗
+            </strong>
+        </p>
+
+    </div>
+
+
+    <div class="divider">
+        ♡ ───────── ♡
+    </div>
+
+
+    <div class="footer">
+        Made with 💗 for our 7th Monthsary
+    </div>
+
+</div>
+</div>
+
+
+<script>
+
+/* PHOTO PICKER */
+
+const photoInput = document.getElementById("photoInput");
+const gallery = document.getElementById("gallery");
+const emptyText = document.getElementById("emptyText");
+
+photoInput.addEventListener("change", function() {
+
+    gallery.innerHTML = "";
+
+    const photos = Array.from(this.files);
+
+    if (photos.length === 0) {
+        gallery.innerHTML =
+        '<p style="text-align:center;color:#987486;">Your photos will appear here 🌸</p>';
+        return;
+    }
+
+    photos.forEach(function(photo, index) {
+
+        const reader = new FileReader();
+
+        reader.onload = function(event) {
+
+            const card = document.createElement("div");
+            card.className = "photo-card";
+
+            card.innerHTML = `
+                <img src="${event.target.result}" alt="Memory ${index + 1}">
+                <div class="photo-caption">
+                    Memory #${index + 1} 💗
+                </div>
+            `;
+
+            gallery.appendChild(card);
+
+        };
+
+        reader.readAsDataURL(photo);
+
+    });
+
+});
+
+
+/* SECRET MESSAGE */
+
+function openMessage() {
+
+    const message = document.getElementById("secretMessage");
+
+    if (message.style.display === "block") {
+        message.style.display = "none";
+    } else {
+        message.style.display = "block";
+        message.scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+
+}
+
+</script>
+
+</body>
+</html>
